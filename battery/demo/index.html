@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>battery-element demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../battery-element.html">
+    
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic battery-element demo</h3>
+          <battery-element id="battery"></battery-element>
+          <label>Controls: </label>
+          <div><input id="range" type="range" min="0" max = "100" /></div>
+          <div><label>Primary color: </label><input type="color" id="primary" /></div>
+          <div><label>Secondary color: </label><input type="color" id="secondary" /></div>
+    </div>
+    <script>
+      var rangeElement = document.getElementById("range");
+      var primaryElement = document.getElementById("primary");
+      var secondaryElement = document.getElementById("secondary");
+      rangeElement.addEventListener("change",function(){
+        var batteryElement = document.getElementById("battery");
+        batteryElement.setAttribute("percentage", this.value);
+      });
+      primaryElement.addEventListener("change",function(){
+        var batteryElement = document.getElementById("battery");
+        batteryElement.setAttribute("primary-color", this.value);
+      });
+      secondaryElement.addEventListener("change",function(){
+        var batteryElement = document.getElementById("battery");
+        batteryElement.setAttribute("secondary-color", this.value);
+      });
+    </script>
+  </body>
+</html>
